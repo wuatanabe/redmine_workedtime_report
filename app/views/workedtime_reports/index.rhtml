@@ -1,0 +1,14 @@
+
+
+<% labelled_tabular_form_for :issue, nil, :url => {:controller => 'workedtime_reports', :action => 'create'},
+                             :html => {:multipart => true, :id => 'issue-form'} do |f| %>
+
+ <div class="box">
+    <%= render :partial => 'workedtime_reports/form', :locals => {:f => f} %>
+    </div>
+    <%= submit_tag l(:button_create) %>
+<% end %>
+
+
+
+<%= render :partial => 'workedtime_reports/resultlist' %>

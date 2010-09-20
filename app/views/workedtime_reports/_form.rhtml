@@ -1,0 +1,12 @@
+<% sql= "status =1" %>
+<p><%= f.select :user_id, get_user(@params[:issue]["user_id"])+User.find(:all, :conditions => sql, :order => 'login ASC').collect {|t| [t.login, t.id]}, :required => false  %></p>
+
+<p><%= f.select :project_id, get_project(@params[:issue]["project_id"])+Project.find(:all, :order => 'name ASC').collect {|t| [t.name, t.id]}, :required => false  %></p>
+
+<p><%= f.text_field :issue_id,  :value => @params[:issue]["issue_id"],  :required => false %></p>
+
+
+
+
+<p><%= f.text_field :start_date, :value => @params[:issue]["start_date"] ,:size => 10 %><%= calendar_for('issue_start_date')  %></p>
+<p><%= f.text_field :end_date,  :label => "End",:value => @params[:issue]["end_date"] , :size => 10  %><%= calendar_for('issue_end_date')  %></p>

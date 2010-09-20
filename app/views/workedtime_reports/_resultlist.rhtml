@@ -1,0 +1,44 @@
+ <% if @time_entries_sums != nil %>
+
+<p>
+<br>
+<br>
+<b> Total Worked hours: 
+	<%= @time_entries_sums %>
+</b>
+<br><br>
+	
+<br>
+<b> Results:</b> (<cite> Note: Self-limited to return max <%= @lim.to_s %> displayed results)</cite> 
+
+<br><br>
+
+<% if @time_entries != nil %>
+	<% @time_entries.each do |te| %>
+		
+		<%= "Day: #{te.spent_on}  -    #{User.find(te.user_id).name} worked " %>  <b><%=" #{te.hours.to_s}" %> </b> <%= "hours on issue #{ link_to_issue(te.issue)}" %>
+		
+		<br/>	
+	<% end %>
+<% end %>	
+
+<br><br>
+
+</p>
+
+<p>
+<br>
+<b> Totals (on each worked issue):</b>(<cite> Note: Self-limited to return max <%= @lim.to_s %> displayed results)</cite>
+<br><br>
+
+<% if @time_entries_dsums != nil %>
+	<% @time_entries_dsums.each do |te| %>
+		  <%= User.find(te["user_id"]).name.to_s %> worked <b><%= te[@sum_field.to_s].to_s %></b> on   <%= link_to_issue(Issue.find(te["issue_id"])) %>
+		<br/>	
+	<% end %>
+<% end %>	
+
+<br><br>
+</p>
+
+<% end %>

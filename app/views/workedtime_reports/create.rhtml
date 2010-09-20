@@ -1,0 +1,15 @@
+<p>
+
+<%= @sql  %> 
+</p>
+
+<p>
+
+	<% @time_entries.each do |te| %>
+		
+		<%= "On #{te.spent_on}  #{User.find(te.user_id).name} worked #{te.hours.to_s} hours on issue #{te.issue_id} (#{te.issue.subject})" %>
+		
+		<br/>	
+	<% end %>
+	</p>
+ 
