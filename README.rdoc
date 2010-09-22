@@ -1,3 +1,14 @@
-= time_report
+redmine_workedtime_report
 
-Description goes here
+== Installation
+Just drop the plugin in the vendor/plugins folder
+Restart redmine
+The plugin adds a new group (named workedtimeviewers) 
+the first time it runs.
+User in the group can enter the WorkTime page
+
+==Description 
+Just a alternative simple yet useful view on time entries
+(for some reasons the already existing solutions did not
+fit my needs)
+
